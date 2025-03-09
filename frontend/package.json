@@ -1,0 +1,18 @@
+{
+  "name": "lunamor",
+  "version": "0.1.0",
+  "description": "Catering management software",
+  "main": "src/index.ts",
+  "repository": "https://github.com/zefciu/lunamor",
+  "author": "Szymon Pyżalski",
+  "license": "BSD-3-Clause",
+  "devDependencies": {
+    "typescript": "^5.8.2"
+  },
+  "dependencies": {
+    "@mantine/core": "^7.17.1",
+    "@mantine/hooks": "^7.17.1",
+    "@reduxjs/toolkit": "^2.6.1",
+    "react-redux": "^9.2.0"
+  }
+}
