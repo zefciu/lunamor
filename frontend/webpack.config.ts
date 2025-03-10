@@ -1,5 +1,6 @@
 import path from "path";
 import webpack, {Configuration} from "webpack";
+import Dotenv from "dotenv-webpack";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import {TsconfigPathsPlugin} from "tsconfig-paths-webpack-plugin";
 import type {Configuration as DevServerConfiguration } from "webpack-dev-server";
@@ -41,6 +42,7 @@ const webpackConfig = (env: any): Configuration => ({
         new HtmlWebpackPlugin({
             template: "./public/index.html"
         }),
+        new Dotenv({}),
         new webpack.DefinePlugin({
             "process.env.PRODUCTION": env.production || !env.development,
             "process.env.NAME": JSON.stringify(require("./package.json").name),

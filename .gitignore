@@ -9,3 +9,4 @@ MANIFEST
 .venv
 node_modules
 .idea
+.env

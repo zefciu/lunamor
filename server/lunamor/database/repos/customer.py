@@ -1,7 +1,7 @@
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from lunamor.database.models.customer import Customer
+from lunamor.database.models.user import Customer
 
 
 class CustomerExists(BaseException):
