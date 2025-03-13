@@ -15,16 +15,11 @@ from lunamor.app.app import get_jwt_fetcher
 http_bearer = HTTPBearer()
 
 
-class UserData(BaseModel):
-    first_name: str
-    last_name: str
-    email: str
 
-
-async def get_user_data(
+async def get_user_id(
     jwt_fetcher: Annotated[AsyncKeyFetcher, Depends(get_jwt_fetcher)],
     credentials: Annotated[HTTPAuthorizationCredentials, Depends(http_bearer)]
-) -> UserData:
+) -> str:
     try:
         key = await jwt_fetcher.get_key(credentials.credentials)
     except JWTInvalidIssuerError:
@@ -33,10 +28,10 @@ async def get_user_data(
             detail="Invalid JWT issuer",
         )
     try:
-        decoded = jwt.decode(jwt=credentials.crededentials, **key)
-    except PyJWTError:
+        decoded = jwt.decode(jwt=credentials.credentials, **key)
+    except PyJWTError as err:
         raise HTTPException(
             status_code=HTTP_401_UNAUTHORIZED,
             detail="Token parsing failed"
         )
-    return UserData.model_validate(**decoded)
+    return decoded["email"]

@@ -18,3 +18,4 @@ class Class(Base):
 
     uuid: Mapped[UUID] = mapped_column(primary_key=True)
     school_id: Mapped[UUID] = mapped_column(ForeignKey("schools.uuid"))
+    name: Mapped[str] = mapped_column(Text())

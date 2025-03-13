@@ -5,7 +5,7 @@ description = "Catering management software"
 authors = [
     {name = "Szymon Pyżalski", email = "szymon@pythonista.net"},
 ]
-dependencies = ["sqlalchemy>=2.0.38", "asyncpg>=0.30.0", "alembic>=1.15.1", "pyjwt>=2.10.1", "pyjwt-key-fetcher>=0.8.0", "fastapi>=0.115.11", "pydantic-settings>=2.8.1"]
+dependencies = ["sqlalchemy>=2.0.38", "asyncpg>=0.30.0", "alembic>=1.15.1", "pyjwt>=2.10.1", "pyjwt-key-fetcher>=0.8.0", "fastapi[standard]>=0.115.11", "pydantic-settings>=2.8.1"]
 requires-python = ">=3.13"
 readme = "../README.md"
 license = {text = "BSD-3-Clause"}
@@ -21,4 +21,5 @@ distribution = true
 [dependency-groups]
 dev = [
     "ipython>=9.0.2",
+    "ipdb>=0.13.13",
 ]
